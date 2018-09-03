@@ -1,0 +1,42 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+}
+
+h2 {
+    color: #16a3b8;
+    font-family: 'Cormorant', serif;
+}
+
+h1 {
+    color: #16a3b8;
+    font-family: 'Cormorant', serif;
+}
+
+button {
+    margin-left: 20px;
+}
+
+label{
+    color:#16a3b8;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 10px;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#nav-home, #nav-account {
+    margin-left: 20px;
+}

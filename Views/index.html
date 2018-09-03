@@ -7,24 +7,12 @@
     <title>Your Closet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href= "../Public/css/main.css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/public/JS/user.js"></script>
-    <script src="/public/JS/form.js"></script>
-    <style>
-        img {
-            max-width: 50%;
-            height: auto;
-        }
-
-        button {
-            margin-left: 10px;
-        }
-
-        form {
-            margin-top: 10px;
-            padding-top: 10px;
-        }
-    </style>
+    <script src="../Public/JS/user.js"></script>
+    <script src="../Public/JS/form.js"></script>
+    
 </head>
 
 <body>
@@ -32,41 +20,62 @@
     <div id="home">
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-4">Special Sizes</h1>
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-4">Your Closet</h1>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-info btn-lg float-right" href="#" role="button" id="resgister">CREATE ACCOUNT</a>
+                    </div>
+                </div>
                 <p class="lead">This is a simple clothes search, made for people whose body types don't fit the norm. Instead
                     of going to separate sites, you can come here to browse multiple brands whose special sizes are carefully
-                    curated.
+                    curated. Just for you. Your Closet.
                 </p>
                 <hr class="my-4">
                 <p>Please sign-in, create an account or to start searching immediately click an image below.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">SIGN-IN</a>
-                <a class="btn btn-primary btn-lg" href="#" role="button">CREATE ACCOUNT/<a>
+
+                <form>
+                    <div class="row">
+
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-info btn-lg" href="#" role="button" id="signIn">SIGN-IN</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                   IMAGE
-                </div>
-                <div class="col">
-                   IMAGE
-                </div>
-                <div class="col">
-                    IMAGE
-                </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                IMAGE
             </div>
-            <div class="row">
-                <div class="col">
-                   PETITIE
-                </div>
-                <div class="col">
-                   TALL
-                </div>
-                <div class="col">
-                   PLUS-SIZE
-                </div>
+            <div class="col">
+                IMAGE
+            </div>
+            <div class="col">
+                IMAGE
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h2>Petite</h2>
+            </div>
+            <div class="col">
+                <h2>Tall</h2>
+            </div>
+            <div class="col">
+                <h2>Plus-size</h2>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="/js/index.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
