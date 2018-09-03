@@ -1,32 +1,27 @@
-module.exports = function(sequelize, DataTypes) {
-    var Example = sequelize.define("Example", {
-      text: DataTypes.STRING,
-      description: DataTypes.TEXT
-    });
-    return Example;
-  };
-  
+// Dependencies
+// =============================================================
 
-var orm = require("../config/orm.js");
+// Sequelize (capital) references the standard library
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("../config/connection.js");
 
-var burgers = {
-  all: function (callback) {
-    orm.selectAll("burgers", function (response) {
-      callback(response);
-    });
-  },
+// Creates a "Character" model that matches up with DB
+var User= sequelize.define("user", {
+  // the routeName gets saved as a string
+  firstName: Sequelize.STRING,
+  // the name of the character (a string)
+  lastName: Sequelize.STRING,
+  // the character's role (a string)
+  email: Sequelize.STRING,
+  // the character's age (a string)
+  type: Sequelize.INTEGER,
+  // and the character's force points (an int)
+  size: Sequelize.INTEGER
+});
 
-  insertOne: function (cols, vals, callback) {
-    orm.insertOne(cols, vals, function (response) {
-      callback(response);
-    });
-  },
-  updateOne: function (objColVals, condition, callback) {
-    orm.updateOne( objColVals, condition, function (response) {
-      callback(response);
-    });
-  },
+// Syncs with DB
+User.sync();
 
-};
-
-module.exports = burgers;
+// Makes the Character Model available for other files (will also create a table)
+module.exports = Character;
