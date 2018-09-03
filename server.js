@@ -4,7 +4,7 @@ var sequelize = require('sequelize');
 var mysql = require('mysql2');
 
 var path = require('path');
-
+var expressVal = require('express-validator');
 var app = express();
 
 require("dotenv").config();
@@ -20,7 +20,9 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("Public"));
+//app.use(express.static("Public"));
+
+app.use(express.static(path.join__dirname, 'Public'));
 
 // Handlebars
 app.engine(

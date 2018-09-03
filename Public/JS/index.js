@@ -8,10 +8,14 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+var expressVal = require('express-validator');
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+//app.use(express.static("public"));
+
+app.use(express.static(path.join__dirname, 'Public'));
 
 // Handlebars
 app.engine(
@@ -34,15 +38,17 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+app.post('users/add', function(req, res){
+    var newUser = {
+        first_Name : req.body.firstName,
+        last_Name: req.body.lastName,
+        email: req.body.email
+    };
 });
 
-module.exports = app;
+app.get('/', function, (req, res){
+    res.render('index', {
+        title: 'Customers',
+        users: users
+    });
+});
