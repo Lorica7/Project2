@@ -40,3 +40,14 @@ form {
 #nav-home, #nav-account {
     margin-left: 20px;
 }
+#toSearch, #toHome {
+    margin-left: 20px;
+}
+
+#savedDesplay{
+    text-align: center;
+}
+#updateForm{
+    text-align: center;
+    margin-bottom: 25px;
+}
