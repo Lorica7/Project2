@@ -13,7 +13,7 @@ if (process.env.JAWSDB_URL) {
         host: 'localhost',
         user: 'root',
         password: 'root',
-        database: 'clothes_db'
+        database: 'user_db'
     });
 }
 

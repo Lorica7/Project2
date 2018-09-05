@@ -1,10 +1,15 @@
-CREATE DATABASE clothes_db;
-USE clothes_db;
+CREATE DATABASE users_db;
+USE users_db;
 
 CREATE TABLE users 
 (
 id INT NOT NULL AUTO_INCREMENT,
-first_name VARCHAR (250) NOT NULL,
-devoured BOOLEAN DEFAULT false,
+firstName VARCHAR (250) NOT NULL,
+lastName VARCHAR (250) NOT NULL,
+email VARCHAR (250) NOT NULL,
+uPassword VARCHAR (250) NOT NULL,
+bType VARCHAR (250) NOT NULL,
+size VARCHAR (250) NOT NULL,
+savedSearch VARCHAR (800) NOT NULL,
 PRIMARY KEY (id)
 );
