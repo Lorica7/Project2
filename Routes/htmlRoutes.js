@@ -1,39 +1,5 @@
-//Different from other html-routes because of the Sequelize CLI
 
 var db = require("../models");
-
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~From Library Ex
-// *********************************************************************************
-// html-routes.js - this file offers a set of routes for sending users to the various html pages
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
 var path = require("path");
 
 
@@ -41,31 +7,28 @@ var path = require("path");
 // =============================================================
 module.exports = function(app) {
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view.html"));
+    res.sendFile(path.join(__dirname, "../Views/index.html"));
   });
 
-  // add route loads the add.html page, where users can enter new books to the db
-  app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+  app.get("/register", function(req, res) {
+    res.sendFile(path.join(__dirname, "../Views/register.html"));
   });
 
-  // all route loads the all.html page, where all books in the db are displayed
-  app.get("/all", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/all.html"));
+  app.get("/results", function(req, res) {
+    res.sendFile(path.join(__dirname, "../Views/results.html"));
   });
 
-  // short route loads the short.html page, where short books in the db are displayed
-  app.get("/short", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/short.html"));
+  app.get("/search", function(req, res) {
+    res.sendFile(path.join(__dirname, "../Views/search.html"));
   });
 
-  // long route loads the long.html page, where long books in the db are displayed
-  app.get("/long", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/long.html"));
+  app.get("/user", function(req, res) {
+    res.sendFile(path.join(__dirname, "../Views/user.html"));
+  });
+
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 
 };

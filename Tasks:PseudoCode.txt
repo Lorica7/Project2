@@ -1,0 +1,89 @@
+Assume we are following the Sequelize CLI/ Project 2 Starter file setup
+
+--Delete Connection.js....but first make sure the necessary code is in another file.
+
+--Write User model using sequelize syntax. export funcion
+--Write Data model using sequelize syntax export model.
+
+--Add to the model the sequelize code that handles validation and the code that handles BELONGS TO and HAS MANY so the relationship between tables is established. See Sequelize week day 3 activities. author joins, blogging activity
+
+--Decide best way to structure Data model. is it a clothes model? what are we saving?
+
+--Find 3 images for the home page
+
+*********
+
+--Write code for user log- in. See Sequelize - Passport example for password and username validation. Possible npm packages express-validator and JOI. 
+        --Write error message and code behavior for invalid password.
+
+*********
+
+--Write functionality for user sign-up form.
+   -- ON click or on submit event listener for the button.
+   -- Grab data from form fields and create correctly formatted object.
+   -- Make sure the API routes and Ajax calls are coded correctly.
+    --Send POST request.
+    -- Make sure data gets added to DB.
+    -- write a client-side message of s\SUCCESS!
+    
+    
+*****
+--Find something for client-side validation, that turns fields red or distribute message if its not completely filled out
+--also for client-side validation. password and email in correct format.
+-- Learn about (securely) storing passwords in databases.
+
+*******
+
+--Finish coding HTML search fields for the user search.
+
+--code the JS To handle to search request submission. 
+
+--Send AJAX / API call to the correct clothing API.
+
+--Code a way to render those objects on the user screen.
+
+-- INlucde a button for user to add to favorites.
+
+-- on click of button, send that data to the DB and make new entry in the Data/Favorites/Clothes table
+
+-- Include a delete button on saved items
+
+--On click, removed data from screen and make necessary API Call to DB, destroy the item where ID equals.....
+
+***************************
+
+---Watch tutorial on webscraping
+
+----install Cheerio
+
+--- Set up webscraping for necessary sites.
+
+--Manipulate the retrieved data so that the information can be rendered to the user's screen.
+
+*************************
+
+--Code for the user's favorites section--
+
+--code an API GET request to the DB and retrieve all the user's favorite items.
+
+-- render to page in html.
+
+--create Delete button and code functionality.
+
+*******************
+
+-----Make sure all pages are linked together -- where necessary
+
+----Code JS for user UPDATE page.
+
+-----ON PAGE LOAD...make a GET request for all user data
+-----print all user data to the screen
+
+---Retrieve any new information from the form submission.
+
+----Make a PUT request.
+
+
+
+
+
