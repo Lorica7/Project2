@@ -1,29 +1,19 @@
-//****************MUST REWRITE if USING THE Sequelize CLI ******* export a function, not the obj *****
+module.exports = function(sequelize, DataTypes) {
 
 
-// Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+var User= sequelize.define("User", {
 
-// Creates a model that matches up with DB
-var User= sequelize.define("user", {
+  firstName: DataTypes.STRING,
 
-  firstName: Sequelize.STRING,
-
-  lastName: Sequelize.STRING,
+  lastName: DataTypes.STRING,
  
-  email: Sequelize.STRING,
+  email: DataTypes.STRING,
 
-  type: Sequelize.INTEGER,
+  type: DataTypes.INTEGER,
 
-  size: Sequelize.INTEGER,
+  size: DataTypes.INTEGER,
 
-  savedData: Sequelize.INTEGER
+  savedData: DataTypes.INTEGER
 });
-
-// Syncs with DB
-User.sync();
-
-//  Model available for other files (will also create a table)
-module.exports = User;
+return User;
+};

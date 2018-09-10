@@ -25,7 +25,7 @@ var API = {
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/delete" + id,
       type: "DELETE"
     });
   }
@@ -114,3 +114,10 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 //         users: users
 //     });
 // });
+
+$.ajax({
+
+  url: "https://api.coinranking.com/v1/public/coin/1335/history/24h?base=USD",
+  global: true,
+  method: "GET"
+}).then(function (response) {

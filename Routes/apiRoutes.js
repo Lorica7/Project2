@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
+  
   app.get("/api/garments", function(req, res) {
     db.Garment.findAll({})
     .then(function(results) {
@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 
 
-  app.get("/api/author/:author", function(req, res) {
+  app.get("/api/user/:email", function(req, res) {
     User.findAll({
       where: {
         email: req.params.email
@@ -21,8 +21,8 @@ module.exports = function(app) {
     });
   });
 
-  // Get all "long" books (books 150 pages or more)
-  app.get("/api/books/long", function(req, res) {
+
+  app.get("/api/garments/color", function(req, res) {
     Garments.findAll({
       where: {
         color: {
@@ -35,11 +35,23 @@ module.exports = function(app) {
   });
 
   
-  app.get("/api/books/short", function(req, res) {
+  app.get("/api/garments/size", function(req, res) {
     Garment.findAll({
       where: {
         size: {
           size: req.params.size
+        }
+      },
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.get("/api/garments/kind", function(req, res) {
+    Garment.findAll({
+      where: {
+        kind: {
+          kind: req.params.kind
         }
       },
     }).then(function(results) {
@@ -61,7 +73,7 @@ module.exports = function(app) {
     });
   });
 
-  // Delete a book
+
   app.post("/api/delete", function(req, res) {
     console.log("Garment Data:");
     console.log(req.body);
@@ -71,14 +83,6 @@ module.exports = function(app) {
       }
     });
   });
-
-
-
-
-
-
-
-
 
 
 };

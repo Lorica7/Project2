@@ -1,3 +1,8 @@
+*****Make a search field to find users by email...forgot password?
+
+******Make Buttons for users to search their saved items
+
+
 Assume we are following the Sequelize CLI/ Project 2 Starter file setup
 
 --Delete Connection.js....but first make sure the necessary code is in another file.
@@ -84,6 +89,8 @@ Assume we are following the Sequelize CLI/ Project 2 Starter file setup
 ----Make a PUT request.
 
 
-
+App ID (Client ID)Danielle-JustMySi-SBX-691c54ee4-cae48d60
+Dev ID 4a684086-79a3-428e-a608-54ab29e67d61
+Cert ID (Client Secret)SBX-91c54ee4bac9-ae8f-42ee-b511-4dcf
 
 
