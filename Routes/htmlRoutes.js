@@ -1,5 +1,5 @@
 
-var db = require("../models");
+
 var path = require("path");
 
 
@@ -27,8 +27,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../Views/user.html"));
   });
 
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 
 };

@@ -1,4 +1,4 @@
-var db = require("../models");
+var db = require("../Models");
 
 module.exports = function(app) {
   
@@ -12,7 +12,7 @@ module.exports = function(app) {
 
 
   app.get("/api/user/:email", function(req, res) {
-    User.findAll({
+    db.User.findAll({
       where: {
         email: req.params.email
       }
@@ -23,7 +23,7 @@ module.exports = function(app) {
 
 
   app.get("/api/garments/color", function(req, res) {
-    Garments.findAll({
+    db.Garments.findAll({
       where: {
         color: {
           color: req.params.color
@@ -36,7 +36,7 @@ module.exports = function(app) {
 
   
   app.get("/api/garments/size", function(req, res) {
-    Garment.findAll({
+    db.Garment.findAll({
       where: {
         size: {
           size: req.params.size
@@ -48,7 +48,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/garments/kind", function(req, res) {
-    Garment.findAll({
+    db.Garment.findAll({
       where: {
         kind: {
           kind: req.params.kind
@@ -63,13 +63,15 @@ module.exports = function(app) {
   app.post("/api/new", function(req, res) {
     console.log("User Data:");
     console.log(req.body);
-    User.create({
+    db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       size: req.body.size,
       type: req.body.type,
       password: req.body.password
+    }).then(function(results) {
+      res.json(results);
     });
   });
 
@@ -81,6 +83,8 @@ module.exports = function(app) {
       where: {
         id: req.body.id
       }
+    }).then(function(results) {
+      res.json(results);
     });
   });
 

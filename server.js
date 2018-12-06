@@ -4,13 +4,11 @@ var sequelize = require('sequelize');
 var mysql = require('mysql2');
 
 var path = require('path');
-var expressVal = require('express-validator');
-var app = express();
+// var expressVal = require('express-validator');
 
-require("dotenv").config();
+// require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
 
 var db = require("./Models");
 
@@ -22,16 +20,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.use(express.static(path.join__dirname, 'Public'));
+// app.use(express.static(path.join__dirname, 'Public'));
+// app.use(express.static(__dirname + '/public'));
+app.use("/public", express.static(__dirname + "/Public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -39,8 +31,6 @@ require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
@@ -49,7 +39,7 @@ if (process.env.NODE_ENV === "test") {
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
-      `Listening on ${PORT}`
+      `Listening on Port ${PORT}`
     
     );
   });
