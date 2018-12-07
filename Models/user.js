@@ -9,6 +9,8 @@ var User= sequelize.define("User", {
  
   email: DataTypes.STRING,
 
+  password: DataTypes.STRING,
+
   type: DataTypes.STRING,
 
   size: DataTypes.STRING,

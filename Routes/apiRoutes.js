@@ -75,11 +75,30 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/update", function(req, res) {
+    console.log("User Data:");
+    console.log(req.body);
+    db.User.update({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      size: req.body.size,
+      type: req.body.type,
+      password: req.body.password
+    },{
+    where: {
+      id: req.body.id
+    }
+  }).then(function(results) {
+      res.json(results);
+    });
+  });
 
-  app.post("/api/delete", function(req, res) {
+
+  app.delete("/api/delete", function(req, res) {
     console.log("Garment Data:");
     console.log(req.body);
-    Garments.destroy({
+    db.Garments.destroy({
       where: {
         id: req.body.id
       }

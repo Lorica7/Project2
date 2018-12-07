@@ -1,37 +1,38 @@
-// $.get("/api/all", function(data) {
-//     // For each book that our server sends us back
-//     for (var i = 0; i < data.length; i++) {
-//       // Create a parent div to hold book data
-//       var wellSection = $("<div>");
-//       // Add a class to this div: 'well'
-//       wellSection.addClass("well");
-//       // Add an id to the well to mark which well it is
-//       wellSection.attr("id", "book-well-" + i);
-//       // Append the well to the well section
-//       $("#well-section").append(wellSection);
-  
-//       // Now  we add our book data to the well we just placed on the page
-//       $("#book-well-" + i).append("<h2>" + (i + 1) + ". " + data[i].title + "</h2>");
-//       $("#book-well-" + i).append("<h3>Author: " + data[i].author + "</h4>");
-//       $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
-//       $("#book-well-" + i).append("<h3>Pages: " + data[i].pages + "</h4>");
-//     }
-//   });
 
-//   function getExternal() {
-//     fetch('https://api.github.com/users')
-//       .then(function(res){
-//         return res.json();
-//       })
-//       .then(function(data) {
-//         console.log(data);
-//         let output = '';
-//         data.forEach(function(user) {
-//           output += `<li>${user.login}</li>`;
-//         });
-//         document.getElementById('output').innerHTML = output;
-//       })
-//       .catch(function(err){
-//         console.log(err);
-//       });
-//   }
+
+
+$("#updateUser").on("click", function(event) {
+    event.preventDefault();
+  console.log("Hi, listener works")
+   
+   
+    var updateUser = {
+      firstName: $("#firstName").val().trim(),
+      lastName: $("#lastName").val().trim(),
+      email: $("#email").val().trim(),
+      password: $("#passwordNew").val().trim(),
+      size: $("#size").val().trim(),
+      type: $("#type").val().trim()
+    };
+  
+    
+      function update (updateUser) {
+        $.ajax({
+          method: "PUT",
+          url: "/api/update",
+          data: updateUser
+        }).then(console.log(updateUser));
+      }
+    
+      update(updateUser);
+ 
+    $("#firstName").val("");
+    $("#lastName").val("");
+    $("#email").val("");
+    $("#passwordNew").val("");
+    $("#passwordOld").val("");
+    $("#passwordConf").val("");
+    $("#size").val("");
+    $("#type").val("");
+
+  });
