@@ -9,11 +9,11 @@ var User= sequelize.define("User", {
  
   email: DataTypes.STRING,
 
-  type: DataTypes.INTEGER,
+  type: DataTypes.STRING,
 
-  size: DataTypes.INTEGER,
+  size: DataTypes.STRING,
 
-  savedData: DataTypes.INTEGER
+  savedData: DataTypes.STRING
 });
 return User;
 };
