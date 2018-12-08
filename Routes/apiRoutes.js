@@ -9,20 +9,23 @@ module.exports = function(app) {
     });
   });
 
+//***************/GET AND FIND/**** /ONE USER BY EMAIL/****** /FOR SIGN-IN PAGE //
 
-
-  app.get("/api/user/:email", function(req, res) {
+  app.get("/api/email", function(req, res) {
+    
     db.User.findAll({
       where: {
-        email: req.params.email
+        email: req.body.email,
+        firstName: req.body.firstName
       }
     }).then(function(results) {
       res.json(results);
     });
   });
 
-
-  app.get("/api/garments/color", function(req, res) {
+//*********/GET AND FINDALL/*********** /CLOTHES BY COLOR/ ****** //
+  
+app.get("/api/garments/color", function(req, res) {
     db.Garments.findAll({
       where: {
         color: {
@@ -34,8 +37,9 @@ module.exports = function(app) {
     });
   });
 
+  //********************/GET AND FINDALL/*********** /BY SIZE/ ****** //
   
-  app.get("/api/garments/size", function(req, res) {
+  app.get("/api/garments/size", (req, res)=> {
     db.Garment.findAll({
       where: {
         size: {
@@ -47,7 +51,9 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/garments/kind", function(req, res) {
+//********************/GET AND FINDALL/*********** /BY TYPE OR KIND / ****** //
+
+  app.get("/api/garments/kind", (req, res) => {
     db.Garment.findAll({
       where: {
         kind: {
@@ -59,8 +65,9 @@ module.exports = function(app) {
     });
   });
 
+  //********************/POST AND CREATE/*********** /NEW USER / ****** /REGISTER PAGE//
   
-  app.post("/api/new", function(req, res) {
+  app.post("/api/new", (req, res) => {
     console.log("User Data:");
     console.log(req.body);
     db.User.create({
@@ -74,6 +81,8 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+
+   //********************/PUT AND UPDATE/*********** /CURRENT USER / ****** /PROFILE PAGE//
 
   app.put("/api/update", function(req, res) {
     console.log("User Data:");
@@ -94,6 +103,7 @@ module.exports = function(app) {
     });
   });
 
+  //********************/DELETE AND DESTROY/*********** /GARMENT DATA / ****** /PROFILE PAGE//
 
   app.delete("/api/delete", function(req, res) {
     console.log("Garment Data:");
