@@ -9,23 +9,20 @@ module.exports = function(app) {
     });
   });
 
-//***************/GET AND FIND/**** /ONE USER BY EMAIL/****** /FOR SIGN-IN PAGE //
 
-  app.get("/api/email", function(req, res) {
-    
+
+  app.get("/api/user/:email", function(req, res) {
     db.User.findAll({
       where: {
-        email: req.body.email,
-        firstName: req.body.firstName
+        email: req.params.email
       }
     }).then(function(results) {
       res.json(results);
     });
   });
 
-//*********/GET AND FINDALL/*********** /CLOTHES BY COLOR/ ****** //
-  
-app.get("/api/garments/color", function(req, res) {
+
+  app.get("/api/garments/color", function(req, res) {
     db.Garments.findAll({
       where: {
         color: {
@@ -37,9 +34,8 @@ app.get("/api/garments/color", function(req, res) {
     });
   });
 
-  //********************/GET AND FINDALL/*********** /BY SIZE/ ****** //
   
-  app.get("/api/garments/size", (req, res)=> {
+  app.get("/api/garments/size", function(req, res) {
     db.Garment.findAll({
       where: {
         size: {
@@ -51,9 +47,7 @@ app.get("/api/garments/color", function(req, res) {
     });
   });
 
-//********************/GET AND FINDALL/*********** /BY TYPE OR KIND / ****** //
-
-  app.get("/api/garments/kind", (req, res) => {
+  app.get("/api/garments/kind", function(req, res) {
     db.Garment.findAll({
       where: {
         kind: {
@@ -65,9 +59,8 @@ app.get("/api/garments/color", function(req, res) {
     });
   });
 
-  //********************/POST AND CREATE/*********** /NEW USER / ****** /REGISTER PAGE//
   
-  app.post("/api/new", (req, res) => {
+  app.post("/api/new", function(req, res) {
     console.log("User Data:");
     console.log(req.body);
     db.User.create({
@@ -81,8 +74,6 @@ app.get("/api/garments/color", function(req, res) {
       res.json(results);
     });
   });
-
-   //********************/PUT AND UPDATE/*********** /CURRENT USER / ****** /PROFILE PAGE//
 
   app.put("/api/update", function(req, res) {
     console.log("User Data:");
@@ -103,7 +94,6 @@ app.get("/api/garments/color", function(req, res) {
     });
   });
 
-  //********************/DELETE AND DESTROY/*********** /GARMENT DATA / ****** /PROFILE PAGE//
 
   app.delete("/api/delete", function(req, res) {
     console.log("Garment Data:");

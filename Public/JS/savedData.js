@@ -1,18 +1,3 @@
-$(document).ready(function() {
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
 
 
 
